@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}index page{% endblock %}
+
+{% block content %}
+
+<style>
+    p {
+        color: black;
+    }
+</style>
+<div class="cart" style="padding-left: 100px; padding-top: 80px;">
+
+
+    <div class="card-body container">
+        <p class="text-center"><strong>{{record.first_name|capfirst}} {{record.last_name}}</strong></p>
+
+        <hr style="border: 1px solid black; margin: 20px 50px;">
+
+        <h3>
+            <p> <strong> ID: </strong> {{record.id}} </p>
+            <p> <strong> Email: </strong> {{record.email}} </p>
+            <p> <strong> Phone number: </strong> {{record.phone}} </p>
+            <p> <strong> Address: </strong> {{record.address}} </p>
+            <p> <strong> City: </strong> {{record.city}} </p>
+            <p> <strong> Country: </strong> {{record.country}} </p>
+            <p> <strong> Creation date: </strong> {{record.creation_date}} </p>
+        </h3>
+
+        <br>
+        <hr style="border: 1px solid black; margin: 20px 50px;">
+
+        <div class="text-center">
+            <a href="{% url 'update_record' record.id %}" class="btn btn-outline-primary">Update Record</a>
+            <a href="{% url 'delete_record' record.id %}" class="btn btn-outline-danger"
+                onclick="return confirm('Are you sure you want to delete this record?')">Remove Recode</a>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

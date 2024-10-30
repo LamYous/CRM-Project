@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container bg-light shadow-md p-5 form_layout ">
+    <h3 class="text-center">Create your account</h3>
+
+    {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        <p style="color: wheat;">{{form.errors}} <a href="{% url 'register' %}"><button type="button"
+                    class="btn btn-light btn-sm">register</button></a></p>
+    </div>
+    {% else %}
+    <h5 class="text-center"> Start managing your clients today! </h5>
+    <hr>
+    <br>
+    <form action="" method="post" autocomplete="off">
+        {% csrf_token %}
+        {{form|crispy}}
+        <br>
+        <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary w-100 btn-block p-2">Create account</button>
+        </div>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}

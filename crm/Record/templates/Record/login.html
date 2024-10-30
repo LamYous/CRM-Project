@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="container bg-light shadow-md p-5 form-layout">
+    <h3 class="text-center">Log-in</h3>
+    <hr style="border: 1px solid #000; margin: 20px 0;">
+    <br>
+
+    {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        <p style="color: wheat;">Your password and user name did'nt match please try again <a
+                href="{% url 'login' %}"><button type="button" class="btn btn-light btn-sm">login</button></a></p>
+    </div>
+    {% else %}
+    <form method="POST" autocoplete="off">
+        {% csrf_token %}
+        {{form|crispy}}
+        <br>
+        <button type='submit' class="btn btn-outline-primary w-100 btn-block p-2">Login</button>
+    </form>
+    <br>
+    <div class="text-center">
+        <p>Dont't have an account? <a href="{% url 'register' %}">Register</a></p>
+    </div>
+    <br>
+</div>
+{% endif %}
+{% endblock %}
