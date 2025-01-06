@@ -17,4 +17,4 @@ This is a CRM (Customer Relationship Management) website built with Django. It a
 
 - **Frontend**: HTML, CSS, Bootstrap
 - **Backend**: Django
-- **Database**: SQLite
+- **Database**: PostgreSQL
